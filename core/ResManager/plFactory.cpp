@@ -156,6 +156,7 @@
 #include "PRP/Region/plSoftVolume.h"
 #include "PRP/Region/plSwimRegion.h"
 #include "PRP/Region/plVisRegion.h"
+#include "PRP/Surface/plBubbleShaderMod.h"
 #include "PRP/Surface/plCubicEnvironmap.h"
 #include "PRP/Surface/plDistOpacityMod.h"
 #include "PRP/Surface/plDynamicEnvMap.h"
@@ -515,7 +516,7 @@ plCreatable* plFactory::Create(short typeIdx) {
         //case kSubtitleMgr: return new pfSubtitleMgr();
         case kPythonFileModConditionalObject: return new plPythonFileModConditionalObject();
         //case kLayerTransform: return new plLayerTransform();
-        //case kBubbleShaderMod: return new plBubbleShaderMod();
+        case kBubbleShaderMod: return new plBubbleShaderMod();
         //case kLineFollowModBase: return new plLineFollowModBase();
         //case kClientApp: return new plClientApp();
         //case kGUICreditsCtrl: return new pfGUICreditsCtrl();

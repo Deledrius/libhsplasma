@@ -551,6 +551,7 @@ set(PRP_SRFC_SRCS
     PRP/Surface/hsGMatState.cpp
     PRP/Surface/hsGMaterial.cpp
     PRP/Surface/plBitmap.cpp
+    PRP/Surface/plBubbleShaderMod.cpp
     PRP/Surface/plCubicEnvironmap.cpp
     PRP/Surface/plDistOpacityMod.cpp
     PRP/Surface/plDynaDecalMgr.cpp
@@ -576,6 +577,7 @@ set(PRP_SRFC_HDRS
     PRP/Surface/hsGMatState.h
     PRP/Surface/hsGMaterial.h
     PRP/Surface/plBitmap.h
+    PRP/Surface/plBubbleShaderMod.h
     PRP/Surface/plCubicEnvironmap.h
     PRP/Surface/plDistOpacityMod.h
     PRP/Surface/plDynaDecalMgr.h
