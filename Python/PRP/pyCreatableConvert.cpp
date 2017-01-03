@@ -54,6 +54,7 @@
 #include "PRP/Avatar/plSittingModifier.h"
 #include "PRP/Camera/plCameraBrain.h"
 #include "PRP/Camera/plCameraModifier.h"
+#include "PRP/Camera/plInterestingModifier.h"
 #include "PRP/ConditionalObject/plActivatorConditionalObject.h"
 #include "PRP/ConditionalObject/plAnimationEventConditionalObject.h"
 #include "PRP/ConditionalObject/plBooleanConditionalObject.h"
@@ -196,6 +197,7 @@
 #include "PRP/Audio/pyWin32StaticSound.h"
 #include "PRP/Camera/pyCameraBrain.h"
 #include "PRP/Camera/pyCameraModifier.h"
+#include "PRP/Camera/pyInterestingModifier.h"
 #include "PRP/ConditionalObject/pyActivatorConditionalObject.h"
 #include "PRP/ConditionalObject/pyAnimationEventConditionalObject.h"
 #include "PRP/ConditionalObject/pyBooleanConditionalObject.h"
@@ -549,6 +551,7 @@ PyObject* ICreate(plCreatable* pCre)
         case kCameraMsg: return pyCameraMsg_FromCameraMsg(plCameraMsg::Convert(pCre));
         case kCameraRegionDetector: return pyCameraRegionDetector_FromCameraRegionDetector(plCameraRegionDetector::Convert(pCre));
         case kCameraModifier: return pyCameraModifier_FromCameraModifier(plCameraModifier::Convert(pCre));
+        case kInterestingModifier: pyInterestingModifier_FromInterestingModifier(plInterestingModifier::Convert(pCre));
         case kAnimPath: return pyAnimPath_FromAnimPath(plAnimPath::Convert(pCre));
         case kLineFollowMod: return pyLineFollowMod_FromLineFollowMod(plLineFollowMod::Convert(pCre));
         case kRailCameraMod: return pyRailCameraMod_FromRailCameraMod(plRailCameraMod::Convert(pCre));

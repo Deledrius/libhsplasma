@@ -195,11 +195,13 @@ set(PRP_AVATAR_HEADERS
 set(PRP_CAMERA_SOURCES
     PRP/Camera/pyCameraBrain.h
     PRP/Camera/pyCameraModifier.h
+    PRP/Camera/pyInterestingModifier.h
 )
 
 set(PRP_CAMERA_HEADERS
     PRP/Camera/pyCameraBrain.cpp
     PRP/Camera/pyCameraModifier.cpp
+    PRP/Camera/pyInterestingModifier.cpp
 )
 
 set(PRP_COND_SOURCES

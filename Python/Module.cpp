@@ -59,6 +59,7 @@
 #include "PRP/Audio/pyWin32StaticSound.h"
 #include "PRP/Camera/pyCameraBrain.h"
 #include "PRP/Camera/pyCameraModifier.h"
+#include "PRP/Camera/pyInterestingModifier.h"
 #include "PRP/ConditionalObject/pyActivatorConditionalObject.h"
 #include "PRP/ConditionalObject/pyAnimationEventConditionalObject.h"
 #include "PRP/ConditionalObject/pyBooleanConditionalObject.h"
@@ -841,6 +842,7 @@ PyMODINIT_FUNC initPyHSPlasma()
     PyModule_AddObject(module, "plSoundMsg", Init_pySoundMsg_Type());
     PyModule_AddObject(module, "plSwimMsg", Init_pySwimMsg_Type());
     PyModule_AddObject(module, "plCameraMsg", Init_pyCameraMsg_Type());
+    PyModule_AddObject(module, "plInterestingModifier", Init_pyInterestingModifier_Type());
     PyModule_AddObject(module, "plAnimPath", Init_pyAnimPath_Type());
     PyModule_AddObject(module, "plParticleApplicator", Init_pyParticleApplicator_Type());
     PyModule_AddObject(module, "plParticleAngleApplicator", Init_pyParticleAngleApplicator_Type());

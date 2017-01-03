@@ -52,6 +52,7 @@
 #include "PRP/Avatar/plSeekPointMod.h"
 #include "PRP/Camera/plCameraBrain.h"
 #include "PRP/Camera/plCameraModifier.h"
+#include "PRP/Camera/plInterestingModifier.h"
 #include "PRP/ConditionalObject/plActivatorConditionalObject.h"
 #include "PRP/ConditionalObject/plAnimationEventConditionalObject.h"
 #include "PRP/ConditionalObject/plBooleanConditionalObject.h"
@@ -235,7 +236,7 @@ plCreatable* plFactory::Create(short typeIdx)
         //case kSimpleModifier: return new plSimpleModifier();
         //case kSimpleTMModifier: return new plSimpleTMModifier();
         //case kRandomTMModifier: return new plRandomTMModifier();
-        //case kInterestingModifier: return new plInterestingModifier();
+        case kInterestingModifier: return new plInterestingModifier();
         case kDetectorModifier: return new plDetectorModifier();
         //case kSimplePhysicalMesh: return new plSimplePhysicalMesh();
         //case kCompoundPhysicalMesh: return new plCompoundPhysicalMesh();

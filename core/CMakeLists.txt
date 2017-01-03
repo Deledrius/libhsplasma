@@ -160,10 +160,12 @@ set(PRP_AVATAR_HEADERS
 set(PRP_CAMERA_SOURCES
     PRP/Camera/plCameraBrain.cpp
     PRP/Camera/plCameraModifier.cpp
+    PRP/Camera/plInterestingModifier.cpp
 )
 set(PRP_CAMERA_HEADERS
     PRP/Camera/plCameraBrain.h
     PRP/Camera/plCameraModifier.h
+    PRP/Camera/plInterestingModifier.h
 )
 
 set(PRP_COND_SOURCES
