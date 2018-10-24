@@ -45,6 +45,7 @@ packages installed in order for libHSPlasma to compile successfully:
 - `zlib <http://www.zlib.net/>`_
 - `libjpeg-turbo <http://libjpeg-turbo.virtualgl.org/>`_
 - `libpng <http://www.libpng.org/pub/png/libpng.html>`_
+- `libsquish <https://sourceforge.net/projects/libsquish/>`_
 - `PhysX <http://www.nvidia.com/object/physx_archives.html#SDK>`_ (Optional)
 
 For libHSPlasmaNet

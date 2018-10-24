@@ -23,7 +23,7 @@
 #include "Util/plPNG.h"
 #include "Util/plDDSurface.h"
 #include "Stream/hsRAMStream.h"
-#include "3rdPartyLibs/squish/squish.h"
+#include <squish.h>
 
 static uint8_t* alloc_aligned(size_t bytes) {
     // Ensure the block is aligned to the processor's likely max access size

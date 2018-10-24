@@ -2,16 +2,17 @@ find_package(ZLIB REQUIRED)
 find_package(JPEG REQUIRED)
 find_package(PNG REQUIRED)
 find_package(Threads REQUIRED)
+find_package(libSquish REQUIRED)
 
 if(ENABLE_PHYSX)
     find_package(PhysX)
 endif(ENABLE_PHYSX)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdPartyLibs/squish)
 include_directories(${ZLIB_INCLUDE_DIR})
 include_directories(${JPEG_INCLUDE_DIR})
 include_directories(${PNG_INCLUDE_DIR})
+include_directories(${LIBSQUISH_INCLUDE_DIR})
 
 if(PHYSX_FOUND AND ENABLE_PHYSX)
     add_definitions(-DHAVE_PX_SDK)
@@ -736,34 +737,6 @@ set(RIJNDAEL_SOURCES
     3rdPartyLibs/rijndael.h
 )
 
-set(SQUISH_SOURCES
-    3rdPartyLibs/squish/alpha.cpp
-    3rdPartyLibs/squish/alpha.h
-    3rdPartyLibs/squish/clusterfit.cpp
-    3rdPartyLibs/squish/clusterfit.h
-    3rdPartyLibs/squish/colourblock.cpp
-    3rdPartyLibs/squish/colourblock.h
-    3rdPartyLibs/squish/colourfit.cpp
-    3rdPartyLibs/squish/colourfit.h
-    3rdPartyLibs/squish/colourset.cpp
-    3rdPartyLibs/squish/colourset.h
-    3rdPartyLibs/squish/maths.cpp
-    3rdPartyLibs/squish/maths.h
-    3rdPartyLibs/squish/rangefit.cpp
-    3rdPartyLibs/squish/rangefit.h
-    3rdPartyLibs/squish/simd.h
-    3rdPartyLibs/squish/simd_float.h
-    3rdPartyLibs/squish/simd_sse.h
-    3rdPartyLibs/squish/singlecolourfit.cpp
-    3rdPartyLibs/squish/singlecolourfit.h
-    3rdPartyLibs/squish/squish.cpp
-    3rdPartyLibs/squish/squish.h
-)
-
-if(ENABLE_SSE2)
-    add_definitions(-DSQUISH_USE_SSE=2)
-endif()
-
 add_library(HSPlasma
             ${DEBUG_SOURCES}        ${DEBUG_HEADERS}
             ${MATH_SOURCES}         ${MATH_HEADERS}
@@ -794,10 +767,9 @@ add_library(HSPlasma
             ${VAULT_SOURCES}        ${VAULT_HEADERS}
                                     ${PLASMA_HEADERS}
             ${RIJNDAEL_SOURCES}
-            ${SQUISH_SOURCES}
 )
 target_link_libraries(HSPlasma ${PNG_LIBRARIES} ${JPEG_LIBRARIES} ${ZLIB_LIBRARIES}
-                      ${CMAKE_THREAD_LIBS_INIT} ${STRING_THEORY_LIBRARIES})
+                      ${CMAKE_THREAD_LIBS_INIT} ${STRING_THEORY_LIBRARIES} ${LIBSQUISH_LIBRARIES})
 if(PHYSX_FOUND AND ENABLE_PHYSX)
     target_link_libraries(HSPlasma ${PHYSX_COOKING_LIBRARY})
 endif(PHYSX_FOUND AND ENABLE_PHYSX)

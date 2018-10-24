@@ -14,6 +14,7 @@ matrix:
             - zlib1g-dev
             - libjpeg-turbo8-dev
             - python2.7-dev
+            - libsquish-dev
     - os: linux
       dist: trusty
       compiler: gcc
@@ -26,6 +27,7 @@ matrix:
             - zlib1g-dev
             - libjpeg-turbo8-dev
             - python3.4-dev
+            - libsquish-dev
     - os: osx
       osx_image: xcode8.3
       compiler: clang
