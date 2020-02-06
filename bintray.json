@@ -1,0 +1,25 @@
+{
+    "package": {
+        "name": "libHSPlasma",
+        "repo": "libHSPlasma",
+        "subject": "deledrius",
+        "vcs_url": "https://github.com/Deledrius/libhsplasma/",
+        "licenses": ["GPL-3.0"],
+        "public_download_numbers": false,
+        "public_stats": false
+    },
+
+    "version": {
+        "name": "0.5test",
+        "desc": "This is a test version",
+        "released": "2020-02-06",
+        "gpgSign": false
+    },
+
+    "files":
+        [
+        {"includePattern": "\/Users\/travis\/build\/Deledrius\/libhsplasma\/build\/(libhsplasma-.*\.tar\.bz2)",
+         "uploadPattern": "$1"}
+        ],
+    "publish": false
+}

@@ -1,0 +1,44 @@
+language: cpp
+os: osx
+jobs:
+  include:
+  - os: osx
+    osx_image: xcode9.4
+    compiler: clang
+    python:
+      - "3.7.0"
+    addons:
+      homebrew:
+        packages:
+        - libjpeg-turbo
+        - libpng
+        - "https://raw.githubusercontent.com/homebrew/homebrew-core/9bd6079437e5969586ca2e4ba7c5f229afe47a78/Formula/python.rb"
+install: |
+  mkdir -p build_deps && cd build_deps
+  git clone https://github.com/zrax/string_theory
+  mkdir -p string_theory/build && cd string_theory/build
+  cmake -DCMAKE_BUILD_TYPE=Debug -DST_BUILD_TESTS=OFF \
+    -DCMAKE_INSTALL_PREFIX="${TRAVIS_BUILD_DIR}/build_deps/prefix" ..
+  make -j2 && sudo make install
+script: |
+  cd ${TRAVIS_BUILD_DIR}
+  mkdir build && cd build
+  mkdir install
+  cmake -DCMAKE_BUILD_TYPE=Debug \
+    -DCMAKE_PREFIX_PATH="${TRAVIS_BUILD_DIR}/build_deps/prefix;/usr/local/opt/jpeg-turbo;/usr/local/opt/openssl" \
+    -DCMAKE_INSTALL_PREFIX=install -DPython_ADDITIONAL_VERSIONS=${PYTHON_VER} \
+    -DENABLE_PYTHON=ON -DENABLE_TOOLS=ON -DENABLE_NET=ON -DENABLE_PHYSX=OFF ..
+  make -j2 && make install
+  tar -cjSf libhsplasma-${TRAVIS_COMPILER}-${TRAVIS_COMMIT}.tar.bz2 install
+  otool -L install/lib/libHSPlasma.dylib
+
+deploy:
+  provider: bintray
+  edge: true
+  file: "${TRAVIS_BUILD_DIR}/bintray.json"
+  cleanup: false
+  on:
+    all_branches: true
+  user: deledrius
+  key:
+    secure: Ty+I1YxwwP9y9FP6huAmU3eOXveYy1O27ARPUTM0R8RJHG4GvKDXmQrH+69fvYp+SVArDQA/NRsvVHLTFSr5LN8Kx3qa9meYDIYzs1SG4MUF1TTP7agoaZJnBUFGig1QzCh8wneh7U4NQCrJnDSJFs2KYrFk4lsryKkWLuKOT/s=
